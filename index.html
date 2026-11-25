@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deal Desk VC · what it is and how to use it</title>
+<meta name="description" content="A deal desk for a seed and Series A venture capital fund.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f3ef;--paper:#fff;--ink:#17201b;--muted:#5b665f;--line:#dedcd4;--green:#0f6b46;--green-2:#e3f0e8;--dark:#1f2a24}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--green)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:"Barlow Condensed",sans-serif;font-weight:700;letter-spacing:.01em;line-height:1.05;margin:0}
+.eyebrow{font:500 12.5px/1 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+.top{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.top b{font-weight:600}
+.top nav{display:flex;gap:18px}
+.top nav a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+.top nav a:hover{color:var(--green);border-color:var(--green)}
+
+.hero{padding:64px 0 40px;max-width:820px}
+.hero h1{font-size:clamp(52px,7.5vw,92px);text-transform:uppercase;margin-top:14px}
+.hero .lead{font-size:19px;color:#2c3630;max-width:640px;margin:20px 0 0}
+.cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:3px;font-weight:600;font-size:15.5px;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink);transition:background .15s,color .15s}
+.btn:hover{background:var(--ink);color:#fff}
+.btn.primary{background:var(--green);border-color:var(--green);color:#fff}
+.btn.primary:hover{background:#0b5437;border-color:#0b5437}
+.facts{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.facts li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.facts b{font-family:"Barlow Condensed",sans-serif;font-size:23px;line-height:1;text-align:right}
+
+.shot{display:block;width:100%;border:1px solid var(--line);border-radius:4px;background:var(--paper);box-shadow:0 24px 48px -28px rgba(23,32,27,.35);cursor:zoom-in;padding:0}
+.shot img{display:block;width:100%;height:auto;border-radius:4px}
+.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.thumbs button{padding:0;border:1px solid var(--line);border-radius:3px;background:var(--paper);cursor:zoom-in;overflow:hidden;text-align:left;font:inherit}
+.thumbs img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top left}
+.thumbs span{display:block;font-size:12.5px;color:var(--muted);padding:6px 9px;border-top:1px solid var(--line)}
+
+section.block{padding:60px 0;border-top:1px solid var(--line);margin-top:56px}
+section.block + section.block{margin-top:0}
+.block h2{font-size:clamp(36px,4.5vw,52px);text-transform:uppercase;margin:10px 0 22px}
+.two{display:grid;grid-template-columns:1.05fr .95fr;gap:48px}
+.prose p{margin:0 0 14px;font-size:17px;color:#2c3630}
+.prose p:last-child{margin:0}
+ul.does{margin:0;padding-left:20px}
+ul.does li{margin:0 0 9px}
+.panel{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--green);padding:22px 24px;border-radius:3px}
+.panel h3{font-size:22px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px}
+
+.tabs{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px;border-top:2px solid var(--ink)}
+.tabs div{display:grid;grid-template-columns:200px 1fr;gap:16px;padding:13px 0;border-bottom:1px solid var(--line)}
+.tabs dt{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:19px;text-transform:uppercase;letter-spacing:.03em}
+.tabs dd{margin:0;font-size:15px;color:#2c3630}
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.steps li{counter-increment:s;background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:18px 20px 18px 62px;position:relative;font-size:15.5px}
+.steps li::before{content:counter(s);position:absolute;left:18px;top:14px;font:700 30px/1 "Barlow Condensed",sans-serif;color:var(--green)}
+.tips{margin:28px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.tips li{border-top:2px solid var(--ink);padding-top:12px;font-size:15px;color:#2c3630}
+.tips b{display:block;font-family:"Barlow Condensed",sans-serif;font-size:20px;text-transform:uppercase;letter-spacing:.03em;color:var(--ink);margin-bottom:4px}
+.kbd{font:500 12.5px "IBM Plex Mono",monospace;background:var(--green-2);color:#0b5437;padding:1px 6px;border-radius:2px;white-space:nowrap}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.cols div{border-top:2px solid var(--ink);padding-top:14px}
+.cols h3{font-size:21px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px}
+.cols p{margin:0;color:#2c3630;font-size:15.5px}
+.end{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:40px;padding:26px 28px;background:var(--paper);border:1px solid var(--line);border-radius:3px}
+.end p{margin:0;font-size:17px}
+
+footer{background:var(--dark);color:#cfd8d2;padding:28px 0;font-size:14px;margin-top:60px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:#9fd8b6}
+dialog{border:0;padding:0;background:transparent;max-width:min(96vw,1440px)}
+dialog::backdrop{background:rgba(15,20,17,.86)}
+dialog img{display:block;max-width:100%;max-height:88vh;border-radius:4px}
+dialog p{color:#e9efe9;margin:10px 2px 0;font-size:14px}
+@media (max-width:900px){
+  .hero,.two,.cols,.tabs,.steps,.tips{grid-template-columns:1fr}
+  .hero{padding:40px 0 28px;gap:30px}
+  .tabs div{grid-template-columns:1fr;gap:2px}
+  .thumbs{grid-template-columns:repeat(2,1fr)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <b>Deal Desk VC</b>
+    <nav aria-label="Sections"><a href="#built-for">Built for</a><a href="#how-to-use">How to use it</a></nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Venture capital</div>
+      <h1>Deal Desk VC</h1>
+      <p class="lead">A deal desk for a seed and Series A venture capital fund.</p>
+      <div class="cta">
+        <a class="btn primary" href="app/index.html">Open the demo →</a>
+        <a class="btn" href="#how-to-use">How to use it</a>
+      </div>
+    </div>
+  </section>
+
+  <button class="shot" data-full="screenshots/portfolio.jpg" data-cap="Portfolio: health, value and multiple, runway, quarterly reporting and board dates for every company">
+    <img src="screenshots/portfolio.jpg" alt="Portfolio: health, value and multiple, runway, quarterly reporting and board dates for every company" width="1440" height="900">
+  </button>
+  <div class="thumbs">
+    <button data-full="screenshots/prep.jpg" data-cap="Meeting prep: a two-minute briefing built from notes, emails, deals and news"><img src="screenshots/prep-sm.jpg" alt="Meeting prep" loading="lazy"><span>Meeting prep</span></button>
+    <button data-full="screenshots/sourcing.jpg" data-cap="Sourcing: companies scored against investment theses, with the reasons for each score"><img src="screenshots/sourcing-sm.jpg" alt="Sourcing" loading="lazy"><span>Sourcing</span></button>
+    <button data-full="screenshots/live.jpg" data-cap="Live deals: due diligence workstreams, IC dates and decisions, cheque and valuation"><img src="screenshots/live-sm.jpg" alt="Live deals" loading="lazy"><span>Live deals</span></button>
+    <button data-full="screenshots/summary.jpg" data-cap="Summary: what needs attention today across catch-ups, pipeline, deals and portfolio"><img src="screenshots/summary-sm.jpg" alt="Summary" loading="lazy"><span>Summary</span></button>
+  </div>
+</div>
+
+<main>
+  <section class="block" id="built-for">
+    <div class="wrap">
+      <div class="eyebrow">What it was built for</div>
+      <h2>One place for the whole investment cycle</h2>
+      <div class="two">
+        <div class="prose">
+          <p>A venture team spends its week between founders, co-investors, LPs and the companies it already owns. The information lives in spreadsheets, inboxes, board packs and people's heads, so it is easy to miss a follow-up, lose track of who has seen a deal, or walk into a meeting without the latest numbers.</p>
+          <p>Deal Desk VC brings sourcing, the pipeline, live deals, the portfolio and every relationship into one shared desk. It is built around the questions a fund asks every day: who should we talk to next, what needs a decision, which companies need help, and who might co-invest in or buy what we own.</p>
+        </div>
+        <div class="panel">
+          <h3>What it does</h3>
+          <ul class="does">
+            <li>Takes a company from first call through due diligence and investment committee to investment, tracking diligence workstreams, conviction, the round and the syndicate.</li>
+            <li>Monitors the portfolio: health ratings, cost against value, runway, a quarterly reporting tracker, fund-level returns and exit plans with buyer maps.</li>
+            <li>Scores sourced companies against investment theses and explains each score, with an AI second opinion and a pre-screen memo.</li>
+            <li>Keeps the CRM of founders, co-investors, LPs and acquirers, with plain-English search, such as &quot;co-investors for a US$4m Series A in Nigeria&quot;.</li>
+            <li>Scans email for portfolio updates, new contacts and deal changes, and proposes them for approval.</li>
+            <li>Logs every change with who made it, and supports undo and redo.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="how-to-use">
+    <div class="wrap">
+      <div class="eyebrow">How to use it</div>
+      <h2>Getting around the desk</h2>
+      <dl class="tabs">
+        <div><dt>Summary</dt><dd>What needs attention today, across catch-ups, the pipeline, live deals, the portfolio and news.</dd></div>
+        <div><dt>Catch-up</dt><dd>Your to-do list: follow-ups, reminders, deal next steps, overdue reports and board dates.</dd></div>
+        <div><dt>Relationship management</dt><dd>Reminders to stay in touch, and a finder for people nobody has spoken to in a while.</dd></div>
+        <div><dt>Sourcing</dt><dd>Investment theses, the companies the sourcing agent found, and how well each one fits.</dd></div>
+        <div><dt>Pipeline</dt><dd>New companies from first call to screening. Move one into due diligence, park it, or pass with a reason.</dd></div>
+        <div><dt>Live deals</dt><dd>Deals in due diligence, IC, term sheet and closing, with the round, our cheque, valuation and syndicate.</dd></div>
+        <div><dt>Portfolio</dt><dd>Each company&#x27;s health, value, runway, reporting and board dates, plus fund returns and exit plans.</dd></div>
+        <div><dt>CRM</dt><dd>Founders, co-investors, LPs, corporates and advisers, with filters and Ask Claude for plain-English search.</dd></div>
+        <div><dt>Recent conversations</dt><dd>Every meeting note and logged email, newest first.</dd></div>
+        <div><dt>News</dt><dd>Funding rounds, exits and regulation, matched to the portfolio and the pipeline.</dd></div>
+      </dl>
+      <h2 style="margin-top:52px">Try this first</h2>
+      <ol class="steps">
+        <li>Open <b>Portfolio</b>, filter <b>Health → Red</b>, then open the company.</li>
+        <li>In <b>Catch-up</b>, open a reminder and click <b>Meeting prep</b>.</li>
+        <li>In <b>CRM</b>, click <b>Ask Claude</b> and ask for co-investors for a deal.</li>
+        <li>Click <b>Email scan</b> (top right), approve a suggestion, then press <b>Undo</b>.</li>
+      </ol>
+      <ul class="tips">
+        <li><b>Open anything</b>Click any company, person or deal name to see its full record, notes and history.</li>
+        <li><b>See it as someone else</b>Change <span class="kbd">Viewing as</span> (top right) to see the desk from another team member's point of view.</li>
+      </ul>
+      <div class="end">
+        <p>See it in action.</p>
+        <a class="btn primary" href="app/index.html">Open the demo →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="built">
+    <div class="wrap">
+      <div class="eyebrow">How it's built</div>
+      <h2>One desk, shared by the whole team</h2>
+      <div class="cols">
+        <div><h3>Shared and accountable</h3><p>The team works from the same records. Every change is logged with who made it and can be undone.</p></div>
+        <div><h3>AI where it saves time</h3><p>Meeting briefings from notes, emails, deals and news; plain-English search for co-investors and buyers; second opinions and pre-screen memos on sourced companies; CRM updates suggested after each note.</p></div>
+        <div><h3>Plain web technology</h3><p>A single-page app in plain JavaScript and CSS. It runs inside Claude, with a database the whole team shares.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>All companies, people and figures are fictional.</span>
+    <span><a href="app/index.html">Open the demo</a></span>
+  </div>
+</footer>
+
+<dialog id="lb" aria-label="Screenshot"><img alt=""><p></p></dialog>
+<script>
+(function(){
+  const lb = document.getElementById('lb'), img = lb.querySelector('img'), cap = lb.querySelector('p');
+  document.querySelectorAll('[data-full]').forEach(b => b.addEventListener('click', () => {
+    img.src = b.dataset.full; img.alt = b.dataset.cap || ''; cap.textContent = b.dataset.cap || '';
+    if (lb.showModal) lb.showModal(); else window.open(b.dataset.full, '_blank');
+  }));
+  lb.addEventListener('click', () => lb.close());
+})();
+</script>
+</body>
+</html>
